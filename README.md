@@ -60,7 +60,7 @@ jobs:
       - name: 🔧 Do something with it
         uses: …
       - name: 📡 Ping the PDS Engineering Corral
-        uses: nasa-pds/git-ping-action@master
+        uses: NASA-PDS/git-ping-action@master
         with:
           repository: nasa-pds/pdsen-corral
           token: ${{secrets.ADMIN_GITHUB_TOKEN}}
