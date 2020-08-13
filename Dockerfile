@@ -24,7 +24,7 @@ COPY entrypoint.sh /
 
 RUN :\
     apk update &&\
-    apk add --virtual .build libxml2-dev libxslt2-dev &&\
+    apk add --virtual .build gcc musl-dev openssl-dev libxml2-dev libxslt-dev &&\
     apk add libxml2 libxslt &&\
     pip install pds-github-util &&\
     apk del .build &&\
