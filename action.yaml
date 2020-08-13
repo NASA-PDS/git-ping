@@ -1,0 +1,49 @@
+# 📡 PDS Engineering: Git Ping Action
+# ===================================
+#
+# This is a GitHub action that:
+# • Pings a remote repository on GitHub
+# • (By submitting an empty commit)
+# • And noting else!
+
+---
+
+name: '📡 PDS Engineering: Git Ping'
+author: 'Sean Kelly <kelly@seankelly.biz>'
+branding:
+  icon: 'radio'
+  color: 'orange'
+inputs:
+  repository:
+    description: >
+      The name of the GitHub repository to trigger; this should be a full name with owner, a slash, and
+      repository name, such as `nasa-pds/pds-corral`.
+    required: true
+  token:
+    description: >
+      A GitHub personal access token that can be used to commit to the target repository. You can generate
+      such a token by visiting the repository's "Settings" tab and clicking "New secret" from the "Secrets"
+      section.
+    required: true
+  branch:
+    description: >
+      The name of the branch to which to send the empty or "ping" commit. By default it will be the
+      `master` branch.
+    required: false
+    default: 'master'
+  message:
+    description: >
+      The commit message. This should contain a description of why the "ping" or empty-commit trigger is
+      being made. If not given, it defaults to the word `Ping` plus an appropriate emoji.
+    required: false
+    default: '📡 Ping'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{inputs.repository}}
+    - ${{inputs.token}}
+    - ${{inputs.branch}}
+    - ${{inputs.message}}
+
+...
