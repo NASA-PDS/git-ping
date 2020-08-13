@@ -22,7 +22,8 @@ inputs:
   token:
     description: >
       A GitHub personal access token that can be used to commit to the target repository. You can generate
-      such a token by visiting the repository's "Settings" tab and clicking "New secret" from the "Secrets"
+      such a token by visiting the your account's "Settings" → "Developer settings"  → "Personal access
+      tokens" and clicking "Generate new token"; save this token in the target repository's "Secrets".
       section.
     required: true
   branch:

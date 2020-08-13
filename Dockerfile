@@ -23,7 +23,12 @@ LABEL "maintainer"="Sean Kelly <kelly@seankelly.biz>"
 COPY entrypoint.sh /
 
 RUN :\
+    apk update &&\
+    apk add --virtual .build libxml2-dev libxslt2-dev &&\
+    apk add libxml2 libxslt &&\
     pip install pds-github-util &&\
+    apk del .build &&\
+    rm -rf /var/cache/apk/* &&\
     chmod +x /entrypoint.sh &&\
     :
 
