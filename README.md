@@ -49,7 +49,7 @@ name: 👩‍🏫 Stable Genius Release
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     name: 👷‍♀️ Build Job
@@ -60,10 +60,10 @@ jobs:
       - name: 🔧 Do something with it
         uses: …
       - name: 📡 Ping the PDS Engineering Corral
-        uses: NASA-PDS/git-ping@master
+        uses: NASA-PDS/git-ping@main
         with:
           repository: nasa-pds/pdsen-corral
           token: ${{secrets.ADMIN_GITHUB_TOKEN}}
-          branch: master
+          branch: main
           message: Stable Genius service upgraded to ${{github.ref}}
 ```
